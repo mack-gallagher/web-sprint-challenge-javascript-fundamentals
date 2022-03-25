@@ -26,13 +26,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
 
+.map(), .reduce(), and .filter() are all methods of JavaScript arrays. .map and .filter are both used to return a new array that is a modified version of the array to the left of the dot, while .reduce can be used to "reduce" the array to the left of the dot into an arbitrary "accumulator" value, which can be a number, an object, or an array. .map takes a callback function between its parentheses and does that callback function to *every* member of the array it is called on, then returns that modified array. This might be useful if, for example, you had an array of Customer objects and in order to keep track of your target demographic you incremented each customer's .age value on January 1st; you could |const 2022Customers = 2021Customers.map(x => x.year++)|. .filter takes a callback function and returns an array containing only the elements of the original array for whom that callback function returns true - for example, you could filter your Customer objects by 2022Customers.filter(x => x.age > 21). .reduce's syntax is more complicated. Its callback function takes both the current value of your accumulator and the value of the array you are currently on, and updates the value of the accumulator after each array element according to what was returned from the callback function. In addition to the callback function, .reduce takes the starting value of your accumulator, which is usually 0 or an empty object or array. For example, to get the total age of all your customers [perhaps to find the average] you could |const totalAge = 2022Customers.reduce((acc,curr) => acc+curr.age,0)|.  
+
 2. Explain the difference between a callback and a higher order function.
+
+A callback is a function that is passed to another function as an argument. A higher order function is a function that returns another function.
 
 3. Explain what a closure is.
 
+A closure is the "closed" relationship between a function and the scope it was declared in, and it can be used to give a function declared from inside a higher-order function, access to the usually private variables that were declared within that higher-order function. Even after the function exits its birthplace, when it is invoked it can access and mutate the private variables that live in its birthplace scope, because it has "closed over" them. This can be useful if we want some functions that work with private-ish variables that still maintain state.
+
 4. Describe the four principles of the 'this' keyword.
 
+Principle 1 [Global binding] says that in the absence of an enclosing object to refer to, 'this' refers to the global object - 'console' or 'window'. Principle 2 [Implicit binding] says that 'this', *inside* an object,refers to the object that it is inside. Principle 3 [New binding] says that Principle 2 also applies to objects returned implicitly from constructor functions invoked using the 'new' keyword - when we create a new object using eg 'const morrie = new Cat({name: 'Morrie', color: 'orange'})', the 'this'es inside Morrie's constructor function refer to the newly created morrie object. Principle 4 [explicit binding] By calling .call() or .apply(), with any functions whose internals refer to 'this' *to the left of the dot*, and putting a substitute, fixed value of 'this' *inside the parentheses*, we can force the 'this' inside those functions to refer to the thing inside the parentheses for one individual call. By doing the same thing with .bind(), we can return a new, permanent function based on the function to the left of the dot, that will refer to that new, fixed 'this' *every* time it is called. 
+
 5. Why do we need super() in an extended class?
+
+When emulating classes with the prototype system in JavaScript, if you want a constructor function to automatically inherit from another constructor function, it is necessary to invoke the ancestor constructor function with 'this' passed in as an argument, so that the member of the child 'class' will be instantiated with all the parent constructor's attributes. super(), combined with using the extends keyword to specify which parent class you want your class to inherit from, is just a simpler way of saying 'call the parent class's constructor on this so I get my parent constructor's attributes'.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
