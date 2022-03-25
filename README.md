@@ -42,7 +42,7 @@ A callback is a function that is passed to another function as an argument. A hi
 
 3. Explain what a closure is.
 
-A closure is the "closed" relationship between a function and the scope it was declared in, and it can be used to give a function declared from inside a higher-order function, access to the usually private variables that were declared within that higher-order function. Even after the function exits its birthplace, when it is invoked it can access and mutate the private variables that live in its birthplace scope, because it has "closed over" them. This can be useful if we want some functions that work with private-ish variables that still maintain state.
+A closure is the "closed" relationship between a function and the scope it was declared in, and it can be used to give a function declared from inside a higher-order function, access to the usually private variables that were also declared within that higher-order function. Even after the function exits its birthplace, when it is invoked it can access and mutate the private variables that live in its birthplace scope, because it has "closed over" them. This can be useful if we want some functions that work with private-ish variables that still maintain state.
 
 4. Describe the four principles of the 'this' keyword.
 
