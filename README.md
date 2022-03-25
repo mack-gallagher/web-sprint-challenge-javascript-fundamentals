@@ -29,7 +29,7 @@ Edit this document to include your answers after each question. Make sure to lea
 
 .map(), .reduce(), and .filter() are all methods of JavaScript arrays. .map and .filter are both used to return a new array that is a modified version of the array to the left of the dot, while .reduce can be used to "reduce" the array to the left of the dot into an arbitrary "accumulator" value, which can be a number, an object, or an array. 
 
-.map takes a callback function between its parentheses and does that callback function to *every* member of the array it is called on, then returns that modified array. This might be useful if, for example, you had an array of Customer objects and in order to keep track of your target demographic you incremented each customer's .age value on January 1st; you could |const 2022Customers = 2021Customers.map(x => x.year++)|. 
+.map takes a callback function between its parentheses and does that callback function to *every* member of the array it is called on, then returns that modified array. This might be useful if, for example, you had an array of Customer objects and in order to keep track of your target demographic you incremented each customer's .age value on January 1st; you could |const 2022Customers = 2021Customers.map(x => x.age++)|. 
 
 .filter takes a callback function and returns an array containing only the elements of the original array for whom that callback function returns true - for example, you could filter your Customer objects by 2022Customers.filter(x => x.age > 21). 
 
