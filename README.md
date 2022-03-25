@@ -58,7 +58,11 @@ Principle 4 [Explicit binding] By calling .call() or .apply(), with any function
 
 5. Why do we need super() in an extended class?
 
-When emulating classes with the prototype system in JavaScript, if you want a constructor function to automatically inherit from another constructor function, it is necessary to invoke the ancestor constructor function with 'this' passed in as an argument, so that the member of the child 'class' will be instantiated with all the parent constructor's attributes. super(), combined with using the extends keyword to specify which parent class you want your class to inherit from, is just a simpler way of saying 'call the parent class's constructor on this so I get my parent constructor's attributes'.
+When emulating classes with the prototype system in JavaScript, if you want one 'class' to automatically inherit from another 'class', you need invoke the ancestor's constructor function inside the child constructor function, with 'this' passed in as an argument, so that the member of the child 'class' will be instantiated with all the parent constructor's attributes in addition to its own. 
+
+super(), combined with the 'extends' keyword to specify which parent class you are inheriting from, is just a simpler way to do this. 
+
+Just like Parent.call(this, props), super(props) also says 'call the parent class's constructor on this so I get my parent constructor's attributes' - it's just simpler.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
